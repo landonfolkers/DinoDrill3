@@ -7,7 +7,8 @@ class Inputform extends Component {
         this.state = {
             areaText: [],
             showMessage: true,
-            showPreview: true
+            showPreview: true,
+            hideMessage: false
         }
     }
 
@@ -15,13 +16,14 @@ class Inputform extends Component {
         e.preventDefault()
         this.setState({ areaText: [] })
         this.setState({ showMessage: false })
+        this.setState({ hideMessage: true })
     }
 
 
     showText() {
-        let newState = this.state.showPreview 
+        let newState = this.state.showPreview
         newState = !newState
-        this.setState({showPreview : newState})
+        this.setState({ showPreview: newState })
     }
 
     render() {
@@ -38,13 +40,18 @@ class Inputform extends Component {
                     <input id="submit" type="submit" value="Submit" onClick={this.clearState.bind(this)} />
                 </form>
                 <section>
-                {
-                    this.state.showMessage
-                        ? false :
-                        <p id="message">Your application was submitted!</p>
-                }
+                    {
+                        this.state.hideMessage
+                            ? true :
+                            <p id="hiddenmessage">&nbsp;</p>
+                    }
+                    {
+                        this.state.showMessage
+                            ? false :
+                            <p id="message">Your application was submitted!</p>
+                    }
                 </section>
-                <Preview areaText={this.state.areaText} showPreview={this.state.showPreview} showText={this.showText.bind(this)}/>
+                <Preview areaText={this.state.areaText} showPreview={this.state.showPreview} showText={this.showText.bind(this)} />
             </div>
         )
     }
