@@ -1,7 +1,6 @@
 import React from 'react'
 
-export default function Preview({ areaText, showPreview, showText}) {
-
+export default function Preview({ areaText, showPreview, showText }) {
     return <div>
         <button id="preview-toggle" onClick={showText}>Show Preview</button>
         {

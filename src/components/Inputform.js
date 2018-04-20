@@ -42,13 +42,13 @@ class Inputform extends Component {
                 <section>
                     {
                         this.state.hideMessage
-                            ? true :
-                            <p id="hiddenmessage">&nbsp;</p>
+                            ? true
+                            : <p id="hiddenmessage">&nbsp;</p>
                     }
                     {
                         this.state.showMessage
-                            ? false :
-                            <p id="message">Your application was submitted!</p>
+                            ? false
+                            : <p id="message">Your application was submitted!</p>
                     }
                 </section>
                 <Preview areaText={this.state.areaText} showPreview={this.state.showPreview} showText={this.showText.bind(this)} />
